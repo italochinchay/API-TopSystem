@@ -1,3 +1,4 @@
+"""
 import requests
 import json
 
@@ -25,3 +26,8 @@ print(respuesta_json)
 
 print("token: "+respuesta_json["imdata"][0]["aaaLogin"]["attributes"]["token"])
 
+"""
+import conf
+
+print(conf.usuario)
+print(conf.clave)
