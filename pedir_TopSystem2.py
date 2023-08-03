@@ -7,7 +7,7 @@ def pedir_token(usuario,clave):
     data = {
         "aaaUser" : {
             "attributes" : {
-                "name" : usuario,
+                "name" : usuario, #
                 "pwd" : clave
             }
         }
@@ -42,4 +42,10 @@ respuesta1 = requests.get(url2,headers=header2 , cookies=API_Cooke, verify=False
 print(respuesta1.json())
 
 for i in range(0,int(respuesta1.json()["totalCount"])):
-    print(respuesta1.json()["imdata"][i]["topSystem"]["attributes"]["address"])
+    # print(respuesta1.json()["imdata"][i]["topSystem"]["attributes"]["address"])
+    ip_local = respuesta1.json()["imdata"][i]["topSystem"]["attributes"]["address"]
+    mac_local = respuesta1.json()["imdata"][i]["topSystem"]["attributes"]["fabricMAC"]
+    Estado_actual = respuesta1.json()["imdata"][i]["topSystem"]["attributes"]["state"]
+
+    print(ip_local+" / "+mac_local+" / "+Estado_actual)
+
